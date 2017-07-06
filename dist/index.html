@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4DBA87">
+  <title>Vue Demo</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="index.js"></script>
+  <script>
+    window.onload = function () {
+      var script = document.createElement('script');
+      var firstScript = document.getElementsByTagName('script')[0];
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = 'sw-register.js?v=' + Date.now();
+      firstScript.parentNode.insertBefore(script, firstScript);
+    };
+  </script>
+</body>
+</html>
