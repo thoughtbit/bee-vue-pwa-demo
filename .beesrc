@@ -19,7 +19,6 @@
     }
   },
   "serviceWorker": {
-    "cacheId": "pwa-demo",
     "templateFilePath": "src/sw.tmpl"
   },
   "env": {
@@ -30,17 +29,5 @@
       "cssSourceMap": true,
       "analyze": true
     }
-  },
-  "dllPlugin": {
-    "name": "bees",
-    "exclude": [
-      "babel-runtime",
-      "vue",
-      "vue-router"
-    ],
-    "include": [
-      "vue/dist/vue.js",
-      "vue-router/dist/vue-router.js"
-    ]
   }
 }

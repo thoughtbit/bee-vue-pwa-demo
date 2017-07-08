@@ -11,9 +11,24 @@
 </head>
 <body>
   <div id="root"></div>
-  <script src="bees.dll.js"></script>
+  <p class="show-console">
+    <a class="button blue" id="entry" href="javascript:">
+      <span>点我6次召唤神龙</span>
+    </a>
+  </p>
+  <script src="https://unpkg.com/alloylever@1.0.1/alloy-lever.js"></script>
   <script src="index.js"></script>
   <script>
+    AlloyLever.config({
+        cdn:'https://s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js',
+        reportUrl: "//a.qq.com",
+        reportPrefix: 'abc',
+        reportKey: 'msg',
+        otherReport: {
+            uin: 100000
+        },
+        entry:"#entry"
+    });
     window.onload = function () {
       var script = document.createElement('script');
       var firstScript = document.getElementsByTagName('script')[0];

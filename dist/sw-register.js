@@ -10,7 +10,8 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
-const isLocalhost = Boolean(
+/* eslint-disable */
+var isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
     window.location.hostname === '[::1]' ||
@@ -25,7 +26,7 @@ function registerValidSW(swUrl) {
     .register(swUrl)
     .then((registration) => {
       registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
+        var installingWorker = registration.installing;
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
@@ -56,8 +57,8 @@ function registerUpdateSW(swUrl) {
   /**
    * 处理 service worker 更新
    */
-  const handlerUpdateMessage = (e) => {
-    const metas = document.getElementsByTagName('meta');
+  var handlerUpdateMessage = (e) => {
+    var metas = document.getElementsByTagName('meta');
 
     /* eslint-disable */
     for (let i = 0, len = metas.length; i < len; i++) {
@@ -67,7 +68,7 @@ function registerUpdateSW(swUrl) {
       }
     }
 
-    const dom = document.createElement('div');
+    var dom = document.createElement('div');
 
     dom.innerHTML = `
       <style>
@@ -130,15 +131,22 @@ function checkValidServiceWorker(swUrl) {
 }
 
 function register() {
-  if ("serviceWorker" in navigator) {
-    const swUrl = "/service-worker.js";
-    if (!isLocalhost) {
-      // Is not local host. Just register service worker
-      registerValidSW(swUrl);
-    } else {
-      // This is running on localhost. Lets check if a service worker still exists or not.
-      checkValidServiceWorker(swUrl);
+
+  if ('serviceWorker' in navigator) {
+    // The URL varructor is available in all browsers that support SW.
+    if (new URL("", window.location).origin !== window.location.origin){
+      return;
     }
+    window.addEventListener('load', () => {
+      var swUrl = '/service-worker.js';
+      if (!isLocalhost) {
+        // Is not local host. Just register service worker
+        registerValidSW(swUrl);
+      } else {
+        // This is running on localhost. Lets check if a service worker still exists or not.
+        checkValidServiceWorker(swUrl);
+      }
+    });
   }
 }
 
