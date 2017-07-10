@@ -18,6 +18,7 @@
       "pathRewrite": { "^/api" : "" }
     }
   },
+
   "serviceWorker": {
     "templateFilePath": "src/sw.tmpl"
   },
