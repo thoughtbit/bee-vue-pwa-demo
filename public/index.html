@@ -17,7 +17,6 @@
     </a>
   </p>
   <script src="https://unpkg.com/alloylever@1.0.1/alloy-lever.js"></script>
-  <script src="index.js"></script>
   <script>
     AlloyLever.config({
         cdn:'https://s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js',
@@ -29,14 +28,15 @@
         },
         entry:"#entry"
     });
-    window.onload = function () {
+    // sw-register.js
+    (function () {
       var script = document.createElement('script');
       var firstScript = document.getElementsByTagName('script')[0];
       script.type = 'text/javascript';
       script.async = true;
       script.src = 'sw-register.js?v=' + Date.now();
       firstScript.parentNode.insertBefore(script, firstScript);
-    };
+    })();
   </script>
   <script src="index.js"></script>
 </body>
