@@ -1,0 +1,43 @@
+{
+  "use": "vue",
+  "style": ["css", "less"],
+  "publicPath": "/",
+  "extraBabelPlugins": [
+    "transform-vue-jsx"
+  ],
+  "disableCSSModules": false,
+  "imgCompress": true,
+  "autoprefixer": null,
+  "externals": [],
+  "multipage": false,
+  "define": null,
+  "proxy": {
+    "/api": {
+      "target": "http://jsonplaceholder.typicode.com/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    }
+  },
+  "sw": true,
+  "env": {
+    "development": {
+      "cssSourceMap": false
+    },
+    "production": {
+      "cssSourceMap": true,
+      "analyze": true
+    }
+  },
+  "dllPlugin": {
+    "name": "bees",
+    "exclude": [
+      "babel-runtime",
+      "vue",
+      "vue-router"
+    ],
+    "include": [
+      "vue/dist/vue.js",
+      "vue-router/dist/vue-router.js"
+    ]
+  }
+}
